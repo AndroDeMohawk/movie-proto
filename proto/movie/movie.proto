@@ -1,0 +1,56 @@
+syntax="proto3";
+package movie;
+option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
+
+import "google/protobuf/timestamp.proto";
+
+
+service MovieService {
+  rpc GetMovie (GetMovieRequest) returns (GetMovieResponse);
+  rpc ListMovies (ListMoviesRequest) returns (ListMoviesResponse);
+  rpc CreateMovie (CreateMovieRequest) returns (CreateMovieResponse);
+}
+message GetMovieRequest{
+  int64 id = 1;
+}
+message GetMovieResponse{
+  Movie movie = 1;
+
+}
+message ListMoviesRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  optional int32 genre_id = 3;
+}
+
+message ListMoviesResponse {
+  repeated Movie movies = 1;
+  int64 total_count = 2;
+}
+
+message CreateMovieRequest {
+  string title = 1;
+  optional string original_title = 2;
+  string description = 3;
+  string director = 4;
+  int32 duration_minutes = 5;
+  string poster_url = 6;
+  repeated int32 genre_ids = 7;
+}
+
+message CreateMovieResponse {
+  int64 id = 1;
+}
+message Movie {
+  int64 id = 1;
+  string title = 2;
+  string original_title = 3;
+  string description = 4;
+  string director = 5;
+  int32 duration_minutes = 6;
+  string poster_url = 7;
+  double average_rating = 8;
+  int64 views_count = 9;
+  repeated string genres = 10;
+  google.protobuf.Timestamp created_at = 11;
+}

@@ -1,0 +1,28 @@
+syntax="proto3";
+package movie;
+option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
+
+service ProfileService {
+  rpc GetProfile (GetProfileRequest) returns (GetProfileResponse);
+  rpc UpdateProfile (UpdateProfileRequest) returns (UpdateProfileResponse);
+}
+
+message GetProfileRequest {}
+
+message GetProfileResponse {
+  int64 id = 1;
+  int64 auth_user_id = 2;
+  string username = 3;
+  string avatar_url = 4;
+  string bio = 5;
+}
+
+message UpdateProfileRequest {
+  optional string username = 1;
+  optional string avatar_url = 2;
+  optional string bio = 3;
+}
+
+message UpdateProfileResponse {
+  bool success = 1;
+}

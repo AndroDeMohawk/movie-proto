@@ -1,0 +1,39 @@
+syntax="proto3";
+package movie;
+option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
+import "google/protobuf/timestamp.proto";
+
+service CommentService {
+  rpc ListComments (ListCommentsRequest) returns (ListCommentsResponse);
+  rpc CreateComment (CreateCommentRequest) returns (CreateCommentResponse);
+}
+
+message ListCommentsRequest {
+  int64 movie_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+}
+
+message ListCommentsResponse {
+  repeated Comment comments = 1;
+  int64 total_count = 2;
+}
+
+message CreateCommentRequest {
+  int64 movie_id = 1;
+  string content = 2;
+}
+
+message CreateCommentResponse {
+  string status = 1;
+}
+
+message Comment {
+  int64 id = 1;
+  int64 movie_id = 2;
+  int64 profile_id = 3;
+  string username = 4;
+  string avatar_url = 5;
+  string content = 6;
+  google.protobuf.Timestamp created_at = 7;
+}

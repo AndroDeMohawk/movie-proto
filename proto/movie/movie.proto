@@ -2,9 +2,6 @@ syntax="proto3";
 package movie;
 option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
 
-import "google/protobuf/timestamp.proto";
-
-
 service MovieService {
   rpc GetMovie (GetMovieRequest) returns (GetMovieResponse);
   rpc ListMovies (ListMoviesRequest) returns (ListMoviesResponse);
@@ -52,5 +49,5 @@ message Movie {
   double average_rating = 8;
   int64 views_count = 9;
   repeated string genres = 10;
-  google.protobuf.Timestamp created_at = 11;
+  int64 created_at = 11;
 }

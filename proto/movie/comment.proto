@@ -1,7 +1,6 @@
 syntax="proto3";
 package movie;
 option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
-import "google/protobuf/timestamp.proto";
 
 service CommentService {
   rpc ListComments (ListCommentsRequest) returns (ListCommentsResponse);
@@ -35,5 +34,5 @@ message Comment {
   string username = 4;
   string avatar_url = 5;
   string content = 6;
-  google.protobuf.Timestamp created_at = 7;
+  int64 created_at = 7;
 }

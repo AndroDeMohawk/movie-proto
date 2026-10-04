@@ -33,6 +33,7 @@ message CreateMovieRequest {
   int32 duration_minutes = 5;
   string poster_url = 6;
   repeated int32 genre_ids = 7;
+  int64 release_date = 8;
 }
 
 message CreateMovieResponse {
@@ -50,4 +51,5 @@ message Movie {
   int64 views_count = 9;
   repeated string genres = 10;
   int64 created_at = 11;
+  int64 release_date = 12;
 }

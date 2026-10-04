@@ -230,6 +230,7 @@ type CreateMovieRequest struct {
 	DurationMinutes int32                  `protobuf:"varint,5,opt,name=duration_minutes,json=durationMinutes,proto3" json:"duration_minutes,omitempty"`
 	PosterUrl       string                 `protobuf:"bytes,6,opt,name=poster_url,json=posterUrl,proto3" json:"poster_url,omitempty"`
 	GenreIds        []int32                `protobuf:"varint,7,rep,packed,name=genre_ids,json=genreIds,proto3" json:"genre_ids,omitempty"`
+	ReleaseDate     int64                  `protobuf:"varint,8,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -313,6 +314,13 @@ func (x *CreateMovieRequest) GetGenreIds() []int32 {
 	return nil
 }
 
+func (x *CreateMovieRequest) GetReleaseDate() int64 {
+	if x != nil {
+		return x.ReleaseDate
+	}
+	return 0
+}
+
 type CreateMovieResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -370,6 +378,7 @@ type Movie struct {
 	ViewsCount      int64                  `protobuf:"varint,9,opt,name=views_count,json=viewsCount,proto3" json:"views_count,omitempty"`
 	Genres          []string               `protobuf:"bytes,10,rep,name=genres,proto3" json:"genres,omitempty"`
 	CreatedAt       int64                  `protobuf:"varint,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	ReleaseDate     int64                  `protobuf:"varint,12,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -481,6 +490,13 @@ func (x *Movie) GetCreatedAt() int64 {
 	return 0
 }
 
+func (x *Movie) GetReleaseDate() int64 {
+	if x != nil {
+		return x.ReleaseDate
+	}
+	return 0
+}
+
 var File_movie_movie_proto protoreflect.FileDescriptor
 
 const file_movie_movie_proto_rawDesc = "" +
@@ -498,7 +514,7 @@ const file_movie_movie_proto_rawDesc = "" +
 	"\x12ListMoviesResponse\x12$\n" +
 	"\x06movies\x18\x01 \x03(\v2\f.movie.MovieR\x06movies\x12\x1f\n" +
 	"\vtotal_count\x18\x02 \x01(\x03R\n" +
-	"totalCount\"\x8e\x02\n" +
+	"totalCount\"\xb1\x02\n" +
 	"\x12CreateMovieRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12*\n" +
 	"\x0eoriginal_title\x18\x02 \x01(\tH\x00R\roriginalTitle\x88\x01\x01\x12 \n" +
@@ -507,10 +523,11 @@ const file_movie_movie_proto_rawDesc = "" +
 	"\x10duration_minutes\x18\x05 \x01(\x05R\x0fdurationMinutes\x12\x1d\n" +
 	"\n" +
 	"poster_url\x18\x06 \x01(\tR\tposterUrl\x12\x1b\n" +
-	"\tgenre_ids\x18\a \x03(\x05R\bgenreIdsB\x11\n" +
+	"\tgenre_ids\x18\a \x03(\x05R\bgenreIds\x12!\n" +
+	"\frelease_date\x18\b \x01(\x03R\vreleaseDateB\x11\n" +
 	"\x0f_original_title\"%\n" +
 	"\x13CreateMovieResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"\xdb\x02\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\xfe\x02\n" +
 	"\x05Movie\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12%\n" +
@@ -526,7 +543,8 @@ const file_movie_movie_proto_rawDesc = "" +
 	"\x06genres\x18\n" +
 	" \x03(\tR\x06genres\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\v \x01(\x03R\tcreatedAt2\xd4\x01\n" +
+	"created_at\x18\v \x01(\x03R\tcreatedAt\x12!\n" +
+	"\frelease_date\x18\f \x01(\x03R\vreleaseDate2\xd4\x01\n" +
 	"\fMovieService\x12;\n" +
 	"\bGetMovie\x12\x16.movie.GetMovieRequest\x1a\x17.movie.GetMovieResponse\x12A\n" +
 	"\n" +

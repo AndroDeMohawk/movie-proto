@@ -9,7 +9,7 @@ package moviev1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
+	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -472,12 +472,12 @@ type FavoriteMovie struct {
 	Title           string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
 	OriginalTitle   *string                `protobuf:"bytes,3,opt,name=original_title,json=originalTitle,proto3,oneof" json:"original_title,omitempty"`
 	Description     *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
-	ReleaseDate     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
+	ReleaseDate     int64                  `protobuf:"varint,5,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
 	DurationMinutes *int32                 `protobuf:"varint,6,opt,name=duration_minutes,json=durationMinutes,proto3,oneof" json:"duration_minutes,omitempty"`
 	PosterUrl       *string                `protobuf:"bytes,7,opt,name=poster_url,json=posterUrl,proto3,oneof" json:"poster_url,omitempty"`
 	Rating          float64                `protobuf:"fixed64,8,opt,name=rating,proto3" json:"rating,omitempty"`
 	ViewsCount      int64                  `protobuf:"varint,9,opt,name=views_count,json=viewsCount,proto3" json:"views_count,omitempty"`
-	AddedAt         *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=added_at,json=addedAt,proto3" json:"added_at,omitempty"`
+	AddedAt         int64                  `protobuf:"varint,10,opt,name=added_at,json=addedAt,proto3" json:"added_at,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -540,11 +540,11 @@ func (x *FavoriteMovie) GetDescription() string {
 	return ""
 }
 
-func (x *FavoriteMovie) GetReleaseDate() *timestamppb.Timestamp {
+func (x *FavoriteMovie) GetReleaseDate() int64 {
 	if x != nil {
 		return x.ReleaseDate
 	}
-	return nil
+	return 0
 }
 
 func (x *FavoriteMovie) GetDurationMinutes() int32 {
@@ -575,11 +575,11 @@ func (x *FavoriteMovie) GetViewsCount() int64 {
 	return 0
 }
 
-func (x *FavoriteMovie) GetAddedAt() *timestamppb.Timestamp {
+func (x *FavoriteMovie) GetAddedAt() int64 {
 	if x != nil {
 		return x.AddedAt
 	}
-	return nil
+	return 0
 }
 
 type ListFavoritesResponse struct {
@@ -748,21 +748,21 @@ const file_movie_profile_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\"@\n" +
 	"\x14ListFavoritesRequest\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x05R\x04page\x12\x14\n" +
-	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\xd2\x03\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\x9a\x03\n" +
 	"\rFavoriteMovie\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12*\n" +
 	"\x0eoriginal_title\x18\x03 \x01(\tH\x00R\roriginalTitle\x88\x01\x01\x12%\n" +
-	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12=\n" +
-	"\frelease_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\vreleaseDate\x12.\n" +
+	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12!\n" +
+	"\frelease_date\x18\x05 \x01(\x03R\vreleaseDate\x12.\n" +
 	"\x10duration_minutes\x18\x06 \x01(\x05H\x02R\x0fdurationMinutes\x88\x01\x01\x12\"\n" +
 	"\n" +
 	"poster_url\x18\a \x01(\tH\x03R\tposterUrl\x88\x01\x01\x12\x16\n" +
 	"\x06rating\x18\b \x01(\x01R\x06rating\x12\x1f\n" +
 	"\vviews_count\x18\t \x01(\x03R\n" +
-	"viewsCount\x125\n" +
+	"viewsCount\x12\x19\n" +
 	"\badded_at\x18\n" +
-	" \x01(\v2\x1a.google.protobuf.TimestampR\aaddedAtB\x11\n" +
+	" \x01(\x03R\aaddedAtB\x11\n" +
 	"\x0f_original_titleB\x0e\n" +
 	"\f_descriptionB\x13\n" +
 	"\x11_duration_minutesB\r\n" +
@@ -811,29 +811,26 @@ var file_movie_profile_proto_goTypes = []any{
 	(*ListFavoritesResponse)(nil),  // 10: movie.ListFavoritesResponse
 	(*IsFavoriteRequest)(nil),      // 11: movie.IsFavoriteRequest
 	(*IsFavoriteResponse)(nil),     // 12: movie.IsFavoriteResponse
-	(*timestamppb.Timestamp)(nil),  // 13: google.protobuf.Timestamp
 }
 var file_movie_profile_proto_depIdxs = []int32{
-	13, // 0: movie.FavoriteMovie.release_date:type_name -> google.protobuf.Timestamp
-	13, // 1: movie.FavoriteMovie.added_at:type_name -> google.protobuf.Timestamp
-	9,  // 2: movie.ListFavoritesResponse.movies:type_name -> movie.FavoriteMovie
-	0,  // 3: movie.ProfileService.GetProfile:input_type -> movie.GetProfileRequest
-	2,  // 4: movie.ProfileService.UpdateProfile:input_type -> movie.UpdateProfileRequest
-	4,  // 5: movie.ProfileService.AddFavorite:input_type -> movie.AddFavoriteRequest
-	6,  // 6: movie.ProfileService.RemoveFavorite:input_type -> movie.RemoveFavoriteRequest
-	8,  // 7: movie.ProfileService.ListFavorites:input_type -> movie.ListFavoritesRequest
-	11, // 8: movie.ProfileService.IsFavorite:input_type -> movie.IsFavoriteRequest
-	1,  // 9: movie.ProfileService.GetProfile:output_type -> movie.GetProfileResponse
-	3,  // 10: movie.ProfileService.UpdateProfile:output_type -> movie.UpdateProfileResponse
-	5,  // 11: movie.ProfileService.AddFavorite:output_type -> movie.AddFavoriteResponse
-	7,  // 12: movie.ProfileService.RemoveFavorite:output_type -> movie.RemoveFavoriteResponse
-	10, // 13: movie.ProfileService.ListFavorites:output_type -> movie.ListFavoritesResponse
-	12, // 14: movie.ProfileService.IsFavorite:output_type -> movie.IsFavoriteResponse
-	9,  // [9:15] is the sub-list for method output_type
-	3,  // [3:9] is the sub-list for method input_type
-	3,  // [3:3] is the sub-list for extension type_name
-	3,  // [3:3] is the sub-list for extension extendee
-	0,  // [0:3] is the sub-list for field type_name
+	9,  // 0: movie.ListFavoritesResponse.movies:type_name -> movie.FavoriteMovie
+	0,  // 1: movie.ProfileService.GetProfile:input_type -> movie.GetProfileRequest
+	2,  // 2: movie.ProfileService.UpdateProfile:input_type -> movie.UpdateProfileRequest
+	4,  // 3: movie.ProfileService.AddFavorite:input_type -> movie.AddFavoriteRequest
+	6,  // 4: movie.ProfileService.RemoveFavorite:input_type -> movie.RemoveFavoriteRequest
+	8,  // 5: movie.ProfileService.ListFavorites:input_type -> movie.ListFavoritesRequest
+	11, // 6: movie.ProfileService.IsFavorite:input_type -> movie.IsFavoriteRequest
+	1,  // 7: movie.ProfileService.GetProfile:output_type -> movie.GetProfileResponse
+	3,  // 8: movie.ProfileService.UpdateProfile:output_type -> movie.UpdateProfileResponse
+	5,  // 9: movie.ProfileService.AddFavorite:output_type -> movie.AddFavoriteResponse
+	7,  // 10: movie.ProfileService.RemoveFavorite:output_type -> movie.RemoveFavoriteResponse
+	10, // 11: movie.ProfileService.ListFavorites:output_type -> movie.ListFavoritesResponse
+	12, // 12: movie.ProfileService.IsFavorite:output_type -> movie.IsFavoriteResponse
+	7,  // [7:13] is the sub-list for method output_type
+	1,  // [1:7] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_movie_profile_proto_init() }

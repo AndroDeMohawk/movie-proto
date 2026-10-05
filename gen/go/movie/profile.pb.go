@@ -9,6 +9,7 @@ package moviev1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -237,11 +238,487 @@ func (x *UpdateProfileResponse) GetSuccess() bool {
 	return false
 }
 
+type AddFavoriteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFavoriteRequest) Reset() {
+	*x = AddFavoriteRequest{}
+	mi := &file_movie_profile_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFavoriteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFavoriteRequest) ProtoMessage() {}
+
+func (x *AddFavoriteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFavoriteRequest.ProtoReflect.Descriptor instead.
+func (*AddFavoriteRequest) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AddFavoriteRequest) GetMovieId() int64 {
+	if x != nil {
+		return x.MovieId
+	}
+	return 0
+}
+
+type AddFavoriteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddFavoriteResponse) Reset() {
+	*x = AddFavoriteResponse{}
+	mi := &file_movie_profile_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFavoriteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFavoriteResponse) ProtoMessage() {}
+
+func (x *AddFavoriteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFavoriteResponse.ProtoReflect.Descriptor instead.
+func (*AddFavoriteResponse) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *AddFavoriteResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type RemoveFavoriteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveFavoriteRequest) Reset() {
+	*x = RemoveFavoriteRequest{}
+	mi := &file_movie_profile_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveFavoriteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveFavoriteRequest) ProtoMessage() {}
+
+func (x *RemoveFavoriteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveFavoriteRequest.ProtoReflect.Descriptor instead.
+func (*RemoveFavoriteRequest) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *RemoveFavoriteRequest) GetMovieId() int64 {
+	if x != nil {
+		return x.MovieId
+	}
+	return 0
+}
+
+type RemoveFavoriteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveFavoriteResponse) Reset() {
+	*x = RemoveFavoriteResponse{}
+	mi := &file_movie_profile_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveFavoriteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveFavoriteResponse) ProtoMessage() {}
+
+func (x *RemoveFavoriteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveFavoriteResponse.ProtoReflect.Descriptor instead.
+func (*RemoveFavoriteResponse) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *RemoveFavoriteResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type ListFavoritesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Page          int32                  `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	Limit         int32                  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListFavoritesRequest) Reset() {
+	*x = ListFavoritesRequest{}
+	mi := &file_movie_profile_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListFavoritesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListFavoritesRequest) ProtoMessage() {}
+
+func (x *ListFavoritesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListFavoritesRequest.ProtoReflect.Descriptor instead.
+func (*ListFavoritesRequest) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ListFavoritesRequest) GetPage() int32 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *ListFavoritesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type FavoriteMovie struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title           string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	OriginalTitle   *string                `protobuf:"bytes,3,opt,name=original_title,json=originalTitle,proto3,oneof" json:"original_title,omitempty"`
+	Description     *string                `protobuf:"bytes,4,opt,name=description,proto3,oneof" json:"description,omitempty"`
+	ReleaseDate     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
+	DurationMinutes *int32                 `protobuf:"varint,6,opt,name=duration_minutes,json=durationMinutes,proto3,oneof" json:"duration_minutes,omitempty"`
+	PosterUrl       *string                `protobuf:"bytes,7,opt,name=poster_url,json=posterUrl,proto3,oneof" json:"poster_url,omitempty"`
+	Rating          float64                `protobuf:"fixed64,8,opt,name=rating,proto3" json:"rating,omitempty"`
+	ViewsCount      int64                  `protobuf:"varint,9,opt,name=views_count,json=viewsCount,proto3" json:"views_count,omitempty"`
+	AddedAt         *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=added_at,json=addedAt,proto3" json:"added_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *FavoriteMovie) Reset() {
+	*x = FavoriteMovie{}
+	mi := &file_movie_profile_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FavoriteMovie) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FavoriteMovie) ProtoMessage() {}
+
+func (x *FavoriteMovie) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FavoriteMovie.ProtoReflect.Descriptor instead.
+func (*FavoriteMovie) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *FavoriteMovie) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *FavoriteMovie) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *FavoriteMovie) GetOriginalTitle() string {
+	if x != nil && x.OriginalTitle != nil {
+		return *x.OriginalTitle
+	}
+	return ""
+}
+
+func (x *FavoriteMovie) GetDescription() string {
+	if x != nil && x.Description != nil {
+		return *x.Description
+	}
+	return ""
+}
+
+func (x *FavoriteMovie) GetReleaseDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ReleaseDate
+	}
+	return nil
+}
+
+func (x *FavoriteMovie) GetDurationMinutes() int32 {
+	if x != nil && x.DurationMinutes != nil {
+		return *x.DurationMinutes
+	}
+	return 0
+}
+
+func (x *FavoriteMovie) GetPosterUrl() string {
+	if x != nil && x.PosterUrl != nil {
+		return *x.PosterUrl
+	}
+	return ""
+}
+
+func (x *FavoriteMovie) GetRating() float64 {
+	if x != nil {
+		return x.Rating
+	}
+	return 0
+}
+
+func (x *FavoriteMovie) GetViewsCount() int64 {
+	if x != nil {
+		return x.ViewsCount
+	}
+	return 0
+}
+
+func (x *FavoriteMovie) GetAddedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.AddedAt
+	}
+	return nil
+}
+
+type ListFavoritesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Movies        []*FavoriteMovie       `protobuf:"bytes,1,rep,name=movies,proto3" json:"movies,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListFavoritesResponse) Reset() {
+	*x = ListFavoritesResponse{}
+	mi := &file_movie_profile_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListFavoritesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListFavoritesResponse) ProtoMessage() {}
+
+func (x *ListFavoritesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListFavoritesResponse.ProtoReflect.Descriptor instead.
+func (*ListFavoritesResponse) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ListFavoritesResponse) GetMovies() []*FavoriteMovie {
+	if x != nil {
+		return x.Movies
+	}
+	return nil
+}
+
+type IsFavoriteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFavoriteRequest) Reset() {
+	*x = IsFavoriteRequest{}
+	mi := &file_movie_profile_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFavoriteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFavoriteRequest) ProtoMessage() {}
+
+func (x *IsFavoriteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFavoriteRequest.ProtoReflect.Descriptor instead.
+func (*IsFavoriteRequest) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *IsFavoriteRequest) GetMovieId() int64 {
+	if x != nil {
+		return x.MovieId
+	}
+	return 0
+}
+
+type IsFavoriteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsFavorite    bool                   `protobuf:"varint,1,opt,name=is_favorite,json=isFavorite,proto3" json:"is_favorite,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFavoriteResponse) Reset() {
+	*x = IsFavoriteResponse{}
+	mi := &file_movie_profile_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFavoriteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFavoriteResponse) ProtoMessage() {}
+
+func (x *IsFavoriteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_profile_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFavoriteResponse.ProtoReflect.Descriptor instead.
+func (*IsFavoriteResponse) Descriptor() ([]byte, []int) {
+	return file_movie_profile_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *IsFavoriteResponse) GetIsFavorite() bool {
+	if x != nil {
+		return x.IsFavorite
+	}
+	return false
+}
+
 var File_movie_profile_proto protoreflect.FileDescriptor
 
 const file_movie_profile_proto_rawDesc = "" +
 	"\n" +
-	"\x13movie/profile.proto\x12\x05movie\"\x13\n" +
+	"\x13movie/profile.proto\x12\x05movie\x1a\x1fgoogle/protobuf/timestamp.proto\"\x13\n" +
 	"\x11GetProfileRequest\"\x93\x01\n" +
 	"\x12GetProfileResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12 \n" +
@@ -260,11 +737,52 @@ const file_movie_profile_proto_rawDesc = "" +
 	"\v_avatar_urlB\x06\n" +
 	"\x04_bio\"1\n" +
 	"\x15UpdateProfileResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\x9f\x01\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"/\n" +
+	"\x12AddFavoriteRequest\x12\x19\n" +
+	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\"/\n" +
+	"\x13AddFavoriteResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"2\n" +
+	"\x15RemoveFavoriteRequest\x12\x19\n" +
+	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\"2\n" +
+	"\x16RemoveFavoriteResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"@\n" +
+	"\x14ListFavoritesRequest\x12\x12\n" +
+	"\x04page\x18\x01 \x01(\x05R\x04page\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\xd2\x03\n" +
+	"\rFavoriteMovie\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12*\n" +
+	"\x0eoriginal_title\x18\x03 \x01(\tH\x00R\roriginalTitle\x88\x01\x01\x12%\n" +
+	"\vdescription\x18\x04 \x01(\tH\x01R\vdescription\x88\x01\x01\x12=\n" +
+	"\frelease_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\vreleaseDate\x12.\n" +
+	"\x10duration_minutes\x18\x06 \x01(\x05H\x02R\x0fdurationMinutes\x88\x01\x01\x12\"\n" +
+	"\n" +
+	"poster_url\x18\a \x01(\tH\x03R\tposterUrl\x88\x01\x01\x12\x16\n" +
+	"\x06rating\x18\b \x01(\x01R\x06rating\x12\x1f\n" +
+	"\vviews_count\x18\t \x01(\x03R\n" +
+	"viewsCount\x125\n" +
+	"\badded_at\x18\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\aaddedAtB\x11\n" +
+	"\x0f_original_titleB\x0e\n" +
+	"\f_descriptionB\x13\n" +
+	"\x11_duration_minutesB\r\n" +
+	"\v_poster_url\"E\n" +
+	"\x15ListFavoritesResponse\x12,\n" +
+	"\x06movies\x18\x01 \x03(\v2\x14.movie.FavoriteMovieR\x06movies\".\n" +
+	"\x11IsFavoriteRequest\x12\x19\n" +
+	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\"5\n" +
+	"\x12IsFavoriteResponse\x12\x1f\n" +
+	"\vis_favorite\x18\x01 \x01(\bR\n" +
+	"isFavorite2\xc3\x03\n" +
 	"\x0eProfileService\x12A\n" +
 	"\n" +
 	"GetProfile\x12\x18.movie.GetProfileRequest\x1a\x19.movie.GetProfileResponse\x12J\n" +
-	"\rUpdateProfile\x12\x1b.movie.UpdateProfileRequest\x1a\x1c.movie.UpdateProfileResponseB;Z9github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1b\x06proto3"
+	"\rUpdateProfile\x12\x1b.movie.UpdateProfileRequest\x1a\x1c.movie.UpdateProfileResponse\x12D\n" +
+	"\vAddFavorite\x12\x19.movie.AddFavoriteRequest\x1a\x1a.movie.AddFavoriteResponse\x12M\n" +
+	"\x0eRemoveFavorite\x12\x1c.movie.RemoveFavoriteRequest\x1a\x1d.movie.RemoveFavoriteResponse\x12J\n" +
+	"\rListFavorites\x12\x1b.movie.ListFavoritesRequest\x1a\x1c.movie.ListFavoritesResponse\x12A\n" +
+	"\n" +
+	"IsFavorite\x12\x18.movie.IsFavoriteRequest\x1a\x19.movie.IsFavoriteResponseB;Z9github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1b\x06proto3"
 
 var (
 	file_movie_profile_proto_rawDescOnce sync.Once
@@ -278,23 +796,44 @@ func file_movie_profile_proto_rawDescGZIP() []byte {
 	return file_movie_profile_proto_rawDescData
 }
 
-var file_movie_profile_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_movie_profile_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_movie_profile_proto_goTypes = []any{
-	(*GetProfileRequest)(nil),     // 0: movie.GetProfileRequest
-	(*GetProfileResponse)(nil),    // 1: movie.GetProfileResponse
-	(*UpdateProfileRequest)(nil),  // 2: movie.UpdateProfileRequest
-	(*UpdateProfileResponse)(nil), // 3: movie.UpdateProfileResponse
+	(*GetProfileRequest)(nil),      // 0: movie.GetProfileRequest
+	(*GetProfileResponse)(nil),     // 1: movie.GetProfileResponse
+	(*UpdateProfileRequest)(nil),   // 2: movie.UpdateProfileRequest
+	(*UpdateProfileResponse)(nil),  // 3: movie.UpdateProfileResponse
+	(*AddFavoriteRequest)(nil),     // 4: movie.AddFavoriteRequest
+	(*AddFavoriteResponse)(nil),    // 5: movie.AddFavoriteResponse
+	(*RemoveFavoriteRequest)(nil),  // 6: movie.RemoveFavoriteRequest
+	(*RemoveFavoriteResponse)(nil), // 7: movie.RemoveFavoriteResponse
+	(*ListFavoritesRequest)(nil),   // 8: movie.ListFavoritesRequest
+	(*FavoriteMovie)(nil),          // 9: movie.FavoriteMovie
+	(*ListFavoritesResponse)(nil),  // 10: movie.ListFavoritesResponse
+	(*IsFavoriteRequest)(nil),      // 11: movie.IsFavoriteRequest
+	(*IsFavoriteResponse)(nil),     // 12: movie.IsFavoriteResponse
+	(*timestamppb.Timestamp)(nil),  // 13: google.protobuf.Timestamp
 }
 var file_movie_profile_proto_depIdxs = []int32{
-	0, // 0: movie.ProfileService.GetProfile:input_type -> movie.GetProfileRequest
-	2, // 1: movie.ProfileService.UpdateProfile:input_type -> movie.UpdateProfileRequest
-	1, // 2: movie.ProfileService.GetProfile:output_type -> movie.GetProfileResponse
-	3, // 3: movie.ProfileService.UpdateProfile:output_type -> movie.UpdateProfileResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	13, // 0: movie.FavoriteMovie.release_date:type_name -> google.protobuf.Timestamp
+	13, // 1: movie.FavoriteMovie.added_at:type_name -> google.protobuf.Timestamp
+	9,  // 2: movie.ListFavoritesResponse.movies:type_name -> movie.FavoriteMovie
+	0,  // 3: movie.ProfileService.GetProfile:input_type -> movie.GetProfileRequest
+	2,  // 4: movie.ProfileService.UpdateProfile:input_type -> movie.UpdateProfileRequest
+	4,  // 5: movie.ProfileService.AddFavorite:input_type -> movie.AddFavoriteRequest
+	6,  // 6: movie.ProfileService.RemoveFavorite:input_type -> movie.RemoveFavoriteRequest
+	8,  // 7: movie.ProfileService.ListFavorites:input_type -> movie.ListFavoritesRequest
+	11, // 8: movie.ProfileService.IsFavorite:input_type -> movie.IsFavoriteRequest
+	1,  // 9: movie.ProfileService.GetProfile:output_type -> movie.GetProfileResponse
+	3,  // 10: movie.ProfileService.UpdateProfile:output_type -> movie.UpdateProfileResponse
+	5,  // 11: movie.ProfileService.AddFavorite:output_type -> movie.AddFavoriteResponse
+	7,  // 12: movie.ProfileService.RemoveFavorite:output_type -> movie.RemoveFavoriteResponse
+	10, // 13: movie.ProfileService.ListFavorites:output_type -> movie.ListFavoritesResponse
+	12, // 14: movie.ProfileService.IsFavorite:output_type -> movie.IsFavoriteResponse
+	9,  // [9:15] is the sub-list for method output_type
+	3,  // [3:9] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_movie_profile_proto_init() }
@@ -303,13 +842,14 @@ func file_movie_profile_proto_init() {
 		return
 	}
 	file_movie_profile_proto_msgTypes[2].OneofWrappers = []any{}
+	file_movie_profile_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_movie_profile_proto_rawDesc), len(file_movie_profile_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

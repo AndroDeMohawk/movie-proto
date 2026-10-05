@@ -19,8 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProfileService_GetProfile_FullMethodName    = "/movie.ProfileService/GetProfile"
-	ProfileService_UpdateProfile_FullMethodName = "/movie.ProfileService/UpdateProfile"
+	ProfileService_GetProfile_FullMethodName     = "/movie.ProfileService/GetProfile"
+	ProfileService_UpdateProfile_FullMethodName  = "/movie.ProfileService/UpdateProfile"
+	ProfileService_AddFavorite_FullMethodName    = "/movie.ProfileService/AddFavorite"
+	ProfileService_RemoveFavorite_FullMethodName = "/movie.ProfileService/RemoveFavorite"
+	ProfileService_ListFavorites_FullMethodName  = "/movie.ProfileService/ListFavorites"
+	ProfileService_IsFavorite_FullMethodName     = "/movie.ProfileService/IsFavorite"
 )
 
 // ProfileServiceClient is the client API for ProfileService service.
@@ -29,6 +33,10 @@ const (
 type ProfileServiceClient interface {
 	GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*GetProfileResponse, error)
 	UpdateProfile(ctx context.Context, in *UpdateProfileRequest, opts ...grpc.CallOption) (*UpdateProfileResponse, error)
+	AddFavorite(ctx context.Context, in *AddFavoriteRequest, opts ...grpc.CallOption) (*AddFavoriteResponse, error)
+	RemoveFavorite(ctx context.Context, in *RemoveFavoriteRequest, opts ...grpc.CallOption) (*RemoveFavoriteResponse, error)
+	ListFavorites(ctx context.Context, in *ListFavoritesRequest, opts ...grpc.CallOption) (*ListFavoritesResponse, error)
+	IsFavorite(ctx context.Context, in *IsFavoriteRequest, opts ...grpc.CallOption) (*IsFavoriteResponse, error)
 }
 
 type profileServiceClient struct {
@@ -59,12 +67,56 @@ func (c *profileServiceClient) UpdateProfile(ctx context.Context, in *UpdateProf
 	return out, nil
 }
 
+func (c *profileServiceClient) AddFavorite(ctx context.Context, in *AddFavoriteRequest, opts ...grpc.CallOption) (*AddFavoriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddFavoriteResponse)
+	err := c.cc.Invoke(ctx, ProfileService_AddFavorite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *profileServiceClient) RemoveFavorite(ctx context.Context, in *RemoveFavoriteRequest, opts ...grpc.CallOption) (*RemoveFavoriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveFavoriteResponse)
+	err := c.cc.Invoke(ctx, ProfileService_RemoveFavorite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *profileServiceClient) ListFavorites(ctx context.Context, in *ListFavoritesRequest, opts ...grpc.CallOption) (*ListFavoritesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListFavoritesResponse)
+	err := c.cc.Invoke(ctx, ProfileService_ListFavorites_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *profileServiceClient) IsFavorite(ctx context.Context, in *IsFavoriteRequest, opts ...grpc.CallOption) (*IsFavoriteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFavoriteResponse)
+	err := c.cc.Invoke(ctx, ProfileService_IsFavorite_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProfileServiceServer is the server API for ProfileService service.
 // All implementations must embed UnimplementedProfileServiceServer
 // for forward compatibility.
 type ProfileServiceServer interface {
 	GetProfile(context.Context, *GetProfileRequest) (*GetProfileResponse, error)
 	UpdateProfile(context.Context, *UpdateProfileRequest) (*UpdateProfileResponse, error)
+	AddFavorite(context.Context, *AddFavoriteRequest) (*AddFavoriteResponse, error)
+	RemoveFavorite(context.Context, *RemoveFavoriteRequest) (*RemoveFavoriteResponse, error)
+	ListFavorites(context.Context, *ListFavoritesRequest) (*ListFavoritesResponse, error)
+	IsFavorite(context.Context, *IsFavoriteRequest) (*IsFavoriteResponse, error)
 	mustEmbedUnimplementedProfileServiceServer()
 }
 
@@ -80,6 +132,18 @@ func (UnimplementedProfileServiceServer) GetProfile(context.Context, *GetProfile
 }
 func (UnimplementedProfileServiceServer) UpdateProfile(context.Context, *UpdateProfileRequest) (*UpdateProfileResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateProfile not implemented")
+}
+func (UnimplementedProfileServiceServer) AddFavorite(context.Context, *AddFavoriteRequest) (*AddFavoriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddFavorite not implemented")
+}
+func (UnimplementedProfileServiceServer) RemoveFavorite(context.Context, *RemoveFavoriteRequest) (*RemoveFavoriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveFavorite not implemented")
+}
+func (UnimplementedProfileServiceServer) ListFavorites(context.Context, *ListFavoritesRequest) (*ListFavoritesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListFavorites not implemented")
+}
+func (UnimplementedProfileServiceServer) IsFavorite(context.Context, *IsFavoriteRequest) (*IsFavoriteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFavorite not implemented")
 }
 func (UnimplementedProfileServiceServer) mustEmbedUnimplementedProfileServiceServer() {}
 func (UnimplementedProfileServiceServer) testEmbeddedByValue()                        {}
@@ -138,6 +202,78 @@ func _ProfileService_UpdateProfile_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProfileService_AddFavorite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddFavoriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfileServiceServer).AddFavorite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfileService_AddFavorite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfileServiceServer).AddFavorite(ctx, req.(*AddFavoriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProfileService_RemoveFavorite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveFavoriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfileServiceServer).RemoveFavorite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfileService_RemoveFavorite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfileServiceServer).RemoveFavorite(ctx, req.(*RemoveFavoriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProfileService_ListFavorites_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListFavoritesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfileServiceServer).ListFavorites(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfileService_ListFavorites_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfileServiceServer).ListFavorites(ctx, req.(*ListFavoritesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProfileService_IsFavorite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFavoriteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfileServiceServer).IsFavorite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfileService_IsFavorite_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfileServiceServer).IsFavorite(ctx, req.(*IsFavoriteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProfileService_ServiceDesc is the grpc.ServiceDesc for ProfileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +288,22 @@ var ProfileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateProfile",
 			Handler:    _ProfileService_UpdateProfile_Handler,
+		},
+		{
+			MethodName: "AddFavorite",
+			Handler:    _ProfileService_AddFavorite_Handler,
+		},
+		{
+			MethodName: "RemoveFavorite",
+			Handler:    _ProfileService_RemoveFavorite_Handler,
+		},
+		{
+			MethodName: "ListFavorites",
+			Handler:    _ProfileService_ListFavorites_Handler,
+		},
+		{
+			MethodName: "IsFavorite",
+			Handler:    _ProfileService_IsFavorite_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

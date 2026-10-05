@@ -1,11 +1,22 @@
-syntax="proto3";
+syntax = "proto3";
+
 package movie;
+
 option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
+
+import "google/protobuf/timestamp.proto";
 
 service ProfileService {
   rpc GetProfile (GetProfileRequest) returns (GetProfileResponse);
   rpc UpdateProfile (UpdateProfileRequest) returns (UpdateProfileResponse);
+
+  rpc AddFavorite (AddFavoriteRequest) returns (AddFavoriteResponse);
+  rpc RemoveFavorite (RemoveFavoriteRequest) returns (RemoveFavoriteResponse);
+  rpc ListFavorites (ListFavoritesRequest) returns (ListFavoritesResponse);
+  rpc IsFavorite (IsFavoriteRequest) returns (IsFavoriteResponse);
 }
+
+// --- Profile Messages ---
 
 message GetProfileRequest {}
 
@@ -25,4 +36,52 @@ message UpdateProfileRequest {
 
 message UpdateProfileResponse {
   bool success = 1;
+}
+
+// --- Favorites Messages ---
+
+message AddFavoriteRequest {
+  int64 movie_id = 1;
+}
+
+message AddFavoriteResponse {
+  bool success = 1;
+}
+
+message RemoveFavoriteRequest {
+  int64 movie_id = 1;
+}
+
+message RemoveFavoriteResponse {
+  bool success = 1;
+}
+
+message ListFavoritesRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message FavoriteMovie {
+  int64 id = 1;
+  string title = 2;
+  optional string original_title = 3;
+  optional string description = 4;
+  google.protobuf.Timestamp release_date = 5;
+  optional int32 duration_minutes = 6;
+  optional string poster_url = 7;
+  double rating = 8;
+  int64 views_count = 9;
+  google.protobuf.Timestamp added_at = 10;
+}
+
+message ListFavoritesResponse {
+  repeated FavoriteMovie movies = 1;
+}
+
+message IsFavoriteRequest {
+  int64 movie_id = 1;
+}
+
+message IsFavoriteResponse {
+  bool is_favorite = 1;
 }

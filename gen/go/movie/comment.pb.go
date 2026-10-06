@@ -21,230 +21,21 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ListCommentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
-	Page          int32                  `protobuf:"varint,2,opt,name=page,proto3" json:"page,omitempty"`
-	Limit         int32                  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListCommentsRequest) Reset() {
-	*x = ListCommentsRequest{}
-	mi := &file_movie_comment_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListCommentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListCommentsRequest) ProtoMessage() {}
-
-func (x *ListCommentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_comment_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListCommentsRequest.ProtoReflect.Descriptor instead.
-func (*ListCommentsRequest) Descriptor() ([]byte, []int) {
-	return file_movie_comment_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *ListCommentsRequest) GetMovieId() int64 {
-	if x != nil {
-		return x.MovieId
-	}
-	return 0
-}
-
-func (x *ListCommentsRequest) GetPage() int32 {
-	if x != nil {
-		return x.Page
-	}
-	return 0
-}
-
-func (x *ListCommentsRequest) GetLimit() int32 {
-	if x != nil {
-		return x.Limit
-	}
-	return 0
-}
-
-type ListCommentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Comments      []*Comment             `protobuf:"bytes,1,rep,name=comments,proto3" json:"comments,omitempty"`
-	TotalCount    int64                  `protobuf:"varint,2,opt,name=total_count,json=totalCount,proto3" json:"total_count,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListCommentsResponse) Reset() {
-	*x = ListCommentsResponse{}
-	mi := &file_movie_comment_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListCommentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListCommentsResponse) ProtoMessage() {}
-
-func (x *ListCommentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_comment_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListCommentsResponse.ProtoReflect.Descriptor instead.
-func (*ListCommentsResponse) Descriptor() ([]byte, []int) {
-	return file_movie_comment_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *ListCommentsResponse) GetComments() []*Comment {
-	if x != nil {
-		return x.Comments
-	}
-	return nil
-}
-
-func (x *ListCommentsResponse) GetTotalCount() int64 {
-	if x != nil {
-		return x.TotalCount
-	}
-	return 0
-}
-
-type CreateCommentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
-	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateCommentRequest) Reset() {
-	*x = CreateCommentRequest{}
-	mi := &file_movie_comment_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateCommentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateCommentRequest) ProtoMessage() {}
-
-func (x *CreateCommentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_comment_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateCommentRequest.ProtoReflect.Descriptor instead.
-func (*CreateCommentRequest) Descriptor() ([]byte, []int) {
-	return file_movie_comment_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *CreateCommentRequest) GetMovieId() int64 {
-	if x != nil {
-		return x.MovieId
-	}
-	return 0
-}
-
-func (x *CreateCommentRequest) GetContent() string {
-	if x != nil {
-		return x.Content
-	}
-	return ""
-}
-
-type CreateCommentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateCommentResponse) Reset() {
-	*x = CreateCommentResponse{}
-	mi := &file_movie_comment_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateCommentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateCommentResponse) ProtoMessage() {}
-
-func (x *CreateCommentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_comment_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateCommentResponse.ProtoReflect.Descriptor instead.
-func (*CreateCommentResponse) Descriptor() ([]byte, []int) {
-	return file_movie_comment_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *CreateCommentResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
 type Comment struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	MovieId       int64                  `protobuf:"varint,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
-	ProfileId     int64                  `protobuf:"varint,3,opt,name=profile_id,json=profileId,proto3" json:"profile_id,omitempty"`
-	Username      string                 `protobuf:"bytes,4,opt,name=username,proto3" json:"username,omitempty"`
-	AvatarUrl     string                 `protobuf:"bytes,5,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
-	Content       string                 `protobuf:"bytes,6,opt,name=content,proto3" json:"content,omitempty"`
-	CreatedAt     int64                  `protobuf:"varint,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UserId        int64                  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Text          string                 `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
+	CreatedAt     int64                  `protobuf:"varint,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     int64                  `protobuf:"varint,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Comment) Reset() {
 	*x = Comment{}
-	mi := &file_movie_comment_proto_msgTypes[4]
+	mi := &file_movie_comment_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +47,7 @@ func (x *Comment) String() string {
 func (*Comment) ProtoMessage() {}
 
 func (x *Comment) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_comment_proto_msgTypes[4]
+	mi := &file_movie_comment_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +60,7 @@ func (x *Comment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Comment.ProtoReflect.Descriptor instead.
 func (*Comment) Descriptor() ([]byte, []int) {
-	return file_movie_comment_proto_rawDescGZIP(), []int{4}
+	return file_movie_comment_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Comment) GetId() int64 {
@@ -286,30 +77,16 @@ func (x *Comment) GetMovieId() int64 {
 	return 0
 }
 
-func (x *Comment) GetProfileId() int64 {
+func (x *Comment) GetUserId() int64 {
 	if x != nil {
-		return x.ProfileId
+		return x.UserId
 	}
 	return 0
 }
 
-func (x *Comment) GetUsername() string {
+func (x *Comment) GetText() string {
 	if x != nil {
-		return x.Username
-	}
-	return ""
-}
-
-func (x *Comment) GetAvatarUrl() string {
-	if x != nil {
-		return x.AvatarUrl
-	}
-	return ""
-}
-
-func (x *Comment) GetContent() string {
-	if x != nil {
-		return x.Content
+		return x.Text
 	}
 	return ""
 }
@@ -321,38 +98,335 @@ func (x *Comment) GetCreatedAt() int64 {
 	return 0
 }
 
+func (x *Comment) GetUpdatedAt() int64 {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return 0
+}
+
+type CreateCommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	Text          string                 `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCommentRequest) Reset() {
+	*x = CreateCommentRequest{}
+	mi := &file_movie_comment_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCommentRequest) ProtoMessage() {}
+
+func (x *CreateCommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCommentRequest.ProtoReflect.Descriptor instead.
+func (*CreateCommentRequest) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateCommentRequest) GetMovieId() int64 {
+	if x != nil {
+		return x.MovieId
+	}
+	return 0
+}
+
+func (x *CreateCommentRequest) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+type CreateCommentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comment       *Comment               `protobuf:"bytes,1,opt,name=comment,proto3" json:"comment,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCommentResponse) Reset() {
+	*x = CreateCommentResponse{}
+	mi := &file_movie_comment_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCommentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCommentResponse) ProtoMessage() {}
+
+func (x *CreateCommentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCommentResponse.ProtoReflect.Descriptor instead.
+func (*CreateCommentResponse) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreateCommentResponse) GetComment() *Comment {
+	if x != nil {
+		return x.Comment
+	}
+	return nil
+}
+
+type DeleteCommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CommentId     int64                  `protobuf:"varint,1,opt,name=comment_id,json=commentId,proto3" json:"comment_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCommentRequest) Reset() {
+	*x = DeleteCommentRequest{}
+	mi := &file_movie_comment_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCommentRequest) ProtoMessage() {}
+
+func (x *DeleteCommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCommentRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCommentRequest) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DeleteCommentRequest) GetCommentId() int64 {
+	if x != nil {
+		return x.CommentId
+	}
+	return 0
+}
+
+type DeleteCommentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCommentResponse) Reset() {
+	*x = DeleteCommentResponse{}
+	mi := &file_movie_comment_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCommentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCommentResponse) ProtoMessage() {}
+
+func (x *DeleteCommentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCommentResponse.ProtoReflect.Descriptor instead.
+func (*DeleteCommentResponse) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *DeleteCommentResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type ListMovieCommentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MovieId       int64                  `protobuf:"varint,1,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	Page          int32                  `protobuf:"varint,2,opt,name=page,proto3" json:"page,omitempty"`
+	Limit         int32                  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMovieCommentsRequest) Reset() {
+	*x = ListMovieCommentsRequest{}
+	mi := &file_movie_comment_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMovieCommentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMovieCommentsRequest) ProtoMessage() {}
+
+func (x *ListMovieCommentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMovieCommentsRequest.ProtoReflect.Descriptor instead.
+func (*ListMovieCommentsRequest) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ListMovieCommentsRequest) GetMovieId() int64 {
+	if x != nil {
+		return x.MovieId
+	}
+	return 0
+}
+
+func (x *ListMovieCommentsRequest) GetPage() int32 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *ListMovieCommentsRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListMovieCommentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comments      []*Comment             `protobuf:"bytes,1,rep,name=comments,proto3" json:"comments,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListMovieCommentsResponse) Reset() {
+	*x = ListMovieCommentsResponse{}
+	mi := &file_movie_comment_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListMovieCommentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListMovieCommentsResponse) ProtoMessage() {}
+
+func (x *ListMovieCommentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_movie_comment_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListMovieCommentsResponse.ProtoReflect.Descriptor instead.
+func (*ListMovieCommentsResponse) Descriptor() ([]byte, []int) {
+	return file_movie_comment_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ListMovieCommentsResponse) GetComments() []*Comment {
+	if x != nil {
+		return x.Comments
+	}
+	return nil
+}
+
 var File_movie_comment_proto protoreflect.FileDescriptor
 
 const file_movie_comment_proto_rawDesc = "" +
 	"\n" +
-	"\x13movie/comment.proto\x12\x05movie\"Z\n" +
-	"\x13ListCommentsRequest\x12\x19\n" +
-	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\x12\x12\n" +
-	"\x04page\x18\x02 \x01(\x05R\x04page\x12\x14\n" +
-	"\x05limit\x18\x03 \x01(\x05R\x05limit\"c\n" +
-	"\x14ListCommentsResponse\x12*\n" +
-	"\bcomments\x18\x01 \x03(\v2\x0e.movie.CommentR\bcomments\x12\x1f\n" +
-	"\vtotal_count\x18\x02 \x01(\x03R\n" +
-	"totalCount\"K\n" +
-	"\x14CreateCommentRequest\x12\x19\n" +
-	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\x12\x18\n" +
-	"\acontent\x18\x02 \x01(\tR\acontent\"/\n" +
-	"\x15CreateCommentResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"\xc7\x01\n" +
+	"\x13movie/comment.proto\x12\x05movie\"\x9f\x01\n" +
 	"\aComment\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n" +
-	"\bmovie_id\x18\x02 \x01(\x03R\amovieId\x12\x1d\n" +
+	"\bmovie_id\x18\x02 \x01(\x03R\amovieId\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\x12\x12\n" +
+	"\x04text\x18\x04 \x01(\tR\x04text\x12\x1d\n" +
 	"\n" +
-	"profile_id\x18\x03 \x01(\x03R\tprofileId\x12\x1a\n" +
-	"\busername\x18\x04 \x01(\tR\busername\x12\x1d\n" +
+	"created_at\x18\x05 \x01(\x03R\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"avatar_url\x18\x05 \x01(\tR\tavatarUrl\x12\x18\n" +
-	"\acontent\x18\x06 \x01(\tR\acontent\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\x03R\tupdatedAt\"E\n" +
+	"\x14CreateCommentRequest\x12\x19\n" +
+	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\"A\n" +
+	"\x15CreateCommentResponse\x12(\n" +
+	"\acomment\x18\x01 \x01(\v2\x0e.movie.CommentR\acomment\"5\n" +
+	"\x14DeleteCommentRequest\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\a \x01(\x03R\tcreatedAt2\xa5\x01\n" +
-	"\x0eCommentService\x12G\n" +
-	"\fListComments\x12\x1a.movie.ListCommentsRequest\x1a\x1b.movie.ListCommentsResponse\x12J\n" +
-	"\rCreateComment\x12\x1b.movie.CreateCommentRequest\x1a\x1c.movie.CreateCommentResponseB;Z9github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1b\x06proto3"
+	"comment_id\x18\x01 \x01(\x03R\tcommentId\"1\n" +
+	"\x15DeleteCommentResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"_\n" +
+	"\x18ListMovieCommentsRequest\x12\x19\n" +
+	"\bmovie_id\x18\x01 \x01(\x03R\amovieId\x12\x12\n" +
+	"\x04page\x18\x02 \x01(\x05R\x04page\x12\x14\n" +
+	"\x05limit\x18\x03 \x01(\x05R\x05limit\"G\n" +
+	"\x19ListMovieCommentsResponse\x12*\n" +
+	"\bcomments\x18\x01 \x03(\v2\x0e.movie.CommentR\bcomments2\x80\x02\n" +
+	"\x0eCommentService\x12J\n" +
+	"\rCreateComment\x12\x1b.movie.CreateCommentRequest\x1a\x1c.movie.CreateCommentResponse\x12J\n" +
+	"\rDeleteComment\x12\x1b.movie.DeleteCommentRequest\x1a\x1c.movie.DeleteCommentResponse\x12V\n" +
+	"\x11ListMovieComments\x12\x1f.movie.ListMovieCommentsRequest\x1a .movie.ListMovieCommentsResponseB;Z9github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1b\x06proto3"
 
 var (
 	file_movie_comment_proto_rawDescOnce sync.Once
@@ -366,25 +440,30 @@ func file_movie_comment_proto_rawDescGZIP() []byte {
 	return file_movie_comment_proto_rawDescData
 }
 
-var file_movie_comment_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_movie_comment_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_movie_comment_proto_goTypes = []any{
-	(*ListCommentsRequest)(nil),   // 0: movie.ListCommentsRequest
-	(*ListCommentsResponse)(nil),  // 1: movie.ListCommentsResponse
-	(*CreateCommentRequest)(nil),  // 2: movie.CreateCommentRequest
-	(*CreateCommentResponse)(nil), // 3: movie.CreateCommentResponse
-	(*Comment)(nil),               // 4: movie.Comment
+	(*Comment)(nil),                   // 0: movie.Comment
+	(*CreateCommentRequest)(nil),      // 1: movie.CreateCommentRequest
+	(*CreateCommentResponse)(nil),     // 2: movie.CreateCommentResponse
+	(*DeleteCommentRequest)(nil),      // 3: movie.DeleteCommentRequest
+	(*DeleteCommentResponse)(nil),     // 4: movie.DeleteCommentResponse
+	(*ListMovieCommentsRequest)(nil),  // 5: movie.ListMovieCommentsRequest
+	(*ListMovieCommentsResponse)(nil), // 6: movie.ListMovieCommentsResponse
 }
 var file_movie_comment_proto_depIdxs = []int32{
-	4, // 0: movie.ListCommentsResponse.comments:type_name -> movie.Comment
-	0, // 1: movie.CommentService.ListComments:input_type -> movie.ListCommentsRequest
-	2, // 2: movie.CommentService.CreateComment:input_type -> movie.CreateCommentRequest
-	1, // 3: movie.CommentService.ListComments:output_type -> movie.ListCommentsResponse
-	3, // 4: movie.CommentService.CreateComment:output_type -> movie.CreateCommentResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 0: movie.CreateCommentResponse.comment:type_name -> movie.Comment
+	0, // 1: movie.ListMovieCommentsResponse.comments:type_name -> movie.Comment
+	1, // 2: movie.CommentService.CreateComment:input_type -> movie.CreateCommentRequest
+	3, // 3: movie.CommentService.DeleteComment:input_type -> movie.DeleteCommentRequest
+	5, // 4: movie.CommentService.ListMovieComments:input_type -> movie.ListMovieCommentsRequest
+	2, // 5: movie.CommentService.CreateComment:output_type -> movie.CreateCommentResponse
+	4, // 6: movie.CommentService.DeleteComment:output_type -> movie.DeleteCommentResponse
+	6, // 7: movie.CommentService.ListMovieComments:output_type -> movie.ListMovieCommentsResponse
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_movie_comment_proto_init() }
@@ -398,7 +477,7 @@ func file_movie_comment_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_movie_comment_proto_rawDesc), len(file_movie_comment_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

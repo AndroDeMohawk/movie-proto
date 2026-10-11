@@ -5,6 +5,7 @@ option go_package = "github.com/AndroDeMohawk/movie-proto/gen/go/movie;moviev1";
 service MovieService {
   rpc GetMovie (GetMovieRequest) returns (GetMovieResponse);
   rpc ListMovies (ListMoviesRequest) returns (ListMoviesResponse);
+  rpc SearchMovies (SearchMoviesRequest) returns (SearchMoviesResponse);
   rpc CreateMovie (CreateMovieRequest) returns (CreateMovieResponse);
 }
 message GetMovieRequest{
@@ -24,7 +25,17 @@ message ListMoviesResponse {
   repeated Movie movies = 1;
   int64 total_count = 2;
 }
+message SearchMoviesRequest {
+  string query = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  optional int32 genre_id = 4;   
+}
 
+message SearchMoviesResponse {
+  repeated Movie movies = 1;
+  int64 total_count = 2;
+}
 message CreateMovieRequest {
   string title = 1;
   optional string original_title = 2;

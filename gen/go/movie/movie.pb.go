@@ -226,7 +226,7 @@ type SearchMoviesRequest struct {
 	Query         string                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 	Page          int32                  `protobuf:"varint,2,opt,name=page,proto3" json:"page,omitempty"`
 	Limit         int32                  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	GenreId       *int32                 `protobuf:"varint,4,opt,name=genre_id,json=genreId,proto3,oneof" json:"genre_id,omitempty"`
+	GenreIds      []int32                `protobuf:"varint,4,rep,packed,name=genre_ids,json=genreIds,proto3" json:"genre_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -282,11 +282,11 @@ func (x *SearchMoviesRequest) GetLimit() int32 {
 	return 0
 }
 
-func (x *SearchMoviesRequest) GetGenreId() int32 {
-	if x != nil && x.GenreId != nil {
-		return *x.GenreId
+func (x *SearchMoviesRequest) GetGenreIds() []int32 {
+	if x != nil {
+		return x.GenreIds
 	}
-	return 0
+	return nil
 }
 
 type SearchMoviesResponse struct {
@@ -634,13 +634,12 @@ const file_movie_movie_proto_rawDesc = "" +
 	"\x12ListMoviesResponse\x12$\n" +
 	"\x06movies\x18\x01 \x03(\v2\f.movie.MovieR\x06movies\x12\x1f\n" +
 	"\vtotal_count\x18\x02 \x01(\x03R\n" +
-	"totalCount\"\x82\x01\n" +
+	"totalCount\"r\n" +
 	"\x13SearchMoviesRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\x12\x12\n" +
 	"\x04page\x18\x02 \x01(\x05R\x04page\x12\x14\n" +
-	"\x05limit\x18\x03 \x01(\x05R\x05limit\x12\x1e\n" +
-	"\bgenre_id\x18\x04 \x01(\x05H\x00R\agenreId\x88\x01\x01B\v\n" +
-	"\t_genre_id\"]\n" +
+	"\x05limit\x18\x03 \x01(\x05R\x05limit\x12\x1b\n" +
+	"\tgenre_ids\x18\x04 \x03(\x05R\bgenreIds\"]\n" +
 	"\x14SearchMoviesResponse\x12$\n" +
 	"\x06movies\x18\x01 \x03(\v2\f.movie.MovieR\x06movies\x12\x1f\n" +
 	"\vtotal_count\x18\x02 \x01(\x03R\n" +
@@ -731,7 +730,6 @@ func file_movie_movie_proto_init() {
 		return
 	}
 	file_movie_movie_proto_msgTypes[2].OneofWrappers = []any{}
-	file_movie_movie_proto_msgTypes[4].OneofWrappers = []any{}
 	file_movie_movie_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

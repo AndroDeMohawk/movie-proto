@@ -349,7 +349,7 @@ type CreateMovieRequest struct {
 	Director        string                 `protobuf:"bytes,4,opt,name=director,proto3" json:"director,omitempty"`
 	DurationMinutes int32                  `protobuf:"varint,5,opt,name=duration_minutes,json=durationMinutes,proto3" json:"duration_minutes,omitempty"`
 	PosterUrl       string                 `protobuf:"bytes,6,opt,name=poster_url,json=posterUrl,proto3" json:"poster_url,omitempty"`
-	GenreIds        []int32                `protobuf:"varint,7,rep,packed,name=genre_ids,json=genreIds,proto3" json:"genre_ids,omitempty"`
+	GenreIds        []int64                `protobuf:"varint,7,rep,packed,name=genre_ids,json=genreIds,proto3" json:"genre_ids,omitempty"`
 	ReleaseDate     int64                  `protobuf:"varint,8,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -427,7 +427,7 @@ func (x *CreateMovieRequest) GetPosterUrl() string {
 	return ""
 }
 
-func (x *CreateMovieRequest) GetGenreIds() []int32 {
+func (x *CreateMovieRequest) GetGenreIds() []int64 {
 	if x != nil {
 		return x.GenreIds
 	}
@@ -653,7 +653,7 @@ const file_movie_movie_proto_rawDesc = "" +
 	"\x10duration_minutes\x18\x05 \x01(\x05R\x0fdurationMinutes\x12\x1d\n" +
 	"\n" +
 	"poster_url\x18\x06 \x01(\tR\tposterUrl\x12\x1b\n" +
-	"\tgenre_ids\x18\a \x03(\x05R\bgenreIds\x12!\n" +
+	"\tgenre_ids\x18\a \x03(\x03R\bgenreIds\x12!\n" +
 	"\frelease_date\x18\b \x01(\x03R\vreleaseDateB\x11\n" +
 	"\x0f_original_title\"%\n" +
 	"\x13CreateMovieResponse\x12\x0e\n" +

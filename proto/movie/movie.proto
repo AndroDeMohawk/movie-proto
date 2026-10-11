@@ -43,7 +43,7 @@ message CreateMovieRequest {
   string director = 4;
   int32 duration_minutes = 5;
   string poster_url = 6;
-  repeated int32 genre_ids = 7;
+  repeated int64 genre_ids = 7;
   int64 release_date = 8;
 }
 
